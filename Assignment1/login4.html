@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content=""> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="create.css">
+</head>
+<body>
+    <section id="banner">
+<!-- Button to trigger modal -->
+
+<!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog custom-modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <!-- Allerts for change password modal -->
+                <div class="row">
+                    <!-- New password and Confirm new password do not match allert-->
+                    <div id="forgotDangerAlert2" class="alert alert-danger alert-dismissible fade in" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error:</strong> New password and Confirm new password do not match!!
+                    </div>
+                    <!-- User doesn't exist allert -->
+                    <div id="forgotDangerAlert1" class="alert alert-danger alert-dismissible fade in" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error:</strong> User doesn't exist.
+                    </div>
+                    <!-- Password changed successfully allert -->
+                    <div id="forgotSuccessAlert" class="alert alert-success alert-dismissible fade in" style="display: none;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success:</strong> Password changed successfully.
+                    </div>
+                    <!-- Change Password Modal -->
+                    <div class="panel">
+                        <div class="panel-body" >
+                            <center>
+                                <div class="pb-2" >
+                                    <i class="glyphicon glyphicon-lock custom-icon" ></i>
+                                    <h3>
+                                        Forgot Password ?
+                                    </h3>
+                                    <h6>
+                                        you can reset your password here.
+                                    </h6>
+                                </div>
+                            </center>
+                            <form id="forgotPasswordForm" onsubmit="return false">
+                                <div class="col-xs-10 col-xs-offset-1 custom-col">
+                                    <!-- Email input for password change -->
+                                    <div class="form-group">
+                                        <input id="fEmail" class="form-control" type="email" name="fEmail" placeholder="Email" style="border: 1px solid grey;" required>
+                                    </div>
+                                    <!-- Password input for password change -->
+                                    <div class="form-group">
+                                        <input id="newPassword" class="form-control inputBorder" type="password" name="newPassword" placeholder="New Password"  required>
+                                        <span id="newPasswordError" class="errorStyle"></span>
+                                        
+                                    </div>
+                                    <!-- confirm password input for password change -->
+                                    <div class="form-group">          
+                                        <input id="confirmNewPassword" class="form-control inputBorder" type="password" name="confirmNewPassword"  placeholder="Confirm New Password" required>
+                                        <span id="confirmNewPasswordError" class="errorStyle"></span>
+                                    </div>
+                                </div>
+                                <center>
+                                    <div class="row">
+                                        <div class="col-xs-10 col-xs-offset-1" id="modalButton">
+                                            <!-- reset form when clicked on close button without saving changes -->
+                                            <button type="button" class="btn special closeButton" data-dismiss="modal" onclick="resetForm()">Close</button>
+                                            <!-- Reset password button -->
+                                            <button type="submit" class="btn special" onclick="changePassword()">Reset password</button>
+                                        </div>
+                                    </div>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   </div>
+
+    <div class="container login " >
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <!-- invalid credential error -->
+                <div id="dangerAlert" class="alert alert-danger alert-dismissible fade in" style="display: none;">
+                    <a href="login.html" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Error:</strong> Invalid credentials.
+                </div>
+                <!-- log in Success Alert -->
+                <div id="successAlert" class="alert alert-success alert-dismissible fade in" style="display: none;">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success:</strong> Validation succeeded. Redirecting...
+                </div>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 ">
+                <div class="panel">
+                    <div class="panel-heading text-center">
+                        <h3 class="panel-title text-center">LOGIN</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Log in form -->
+                        <form onsubmit="return validate();">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon" ><i class="glyphicon glyphicon-user"></i></span>
+                                     <input id="email" class="form-control" type="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="password-addon">
+                                        <i class="glyphicon glyphicon-lock"></i>
+                                    </span>
+                                    <input id="password" class="form-control" type="password" name="password" required>
+                                    
+                                </div>
+                            </div>
+                            <!-- Forgot password link -->
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-4">
+                                    <div class="form-group pull-right"  >
+                                        <a id="forgotPassLink" data-toggle="modal" data-target="#myModal" href="#myModal">Forgot password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Log in button -->
+                            <center>
+                                <div class="form-group" >
+                                    <button class="btn  special " id="loginButton" type="submit">Login</button>
+                                </div>
+                            </center>
+                            <center>
+                                Don't have an account ? <a href="signup.html">Sign Up</a>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+    // Add a click event listener to the modal backdrop
+    $('.modal').on('click', function (e) {
+      if ($(e.target).hasClass('modal')) {
+        // If the click occurred outside the modal, refresh the page
+        location.reload();
+      }
+    });
+  });
+    </script>
+    <script src="login.js">
+
+    </script>
+</body>
+</html>
+    

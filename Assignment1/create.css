@@ -1,0 +1,182 @@
+@charset "UTF-8";
+@import url(font-awesome.min.css);
+@import "http://fonts.googleapis.com/css?family=Raleway:400,700";
+body{
+    font-family: sans-serif;
+}
+/* Background banner */
+#banner {
+    padding: 7em 0 13em 0;
+    background-attachment: fixed;
+    background-image: url(images/overlay.png), url(images/banner.jpg);
+    background-position: center top;
+    background-size: cover;
+    line-height: 1.75;
+    height: 100vh;
+    width: 100vw;
+}
+.panel{
+    box-shadow: none;
+    border: none;
+    border-radius: 15px;
+}
+.panel-heading{
+    height: 50px;
+    background-color: #f32853;
+    color: #ffffff !important; 
+}
+.panel-title{
+    font-weight: bolder;
+    font-size: x-large;
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+	
+}
+/* Log in and Sign up button */
+.btn.special {
+    background-color: #f32853;
+    color: #ffffff !important;
+    font-weight: bolder;
+    margin-left: 5px;
+    margin-top: 15px;
+
+}
+/* log in an dsign up button hover effect */
+button.btn.special:hover{ 
+    
+    transform: scale(1.1);
+}
+
+#modalButton{
+    padding-top: 2px;
+    gap: 10px;
+    
+}
+#viewProfileCloseButton{
+    margin-top: -20px;
+}
+
+a{
+    color: #f32853;
+}
+a:hover{
+    color: #940808;
+}
+
+
+#forgotPassLink{
+    
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        text-decoration: none;
+        cursor: pointer;
+        color: #f32853;
+      
+}
+#forgotPassLink:hover{
+    color: #940808;
+}
+
+
+.navbar-default .navbar-brand {
+    color:#f32853;
+    font-weight: bolder;
+    font-size: x-large;
+
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #f32853;
+}
+.navbar{
+    color: #f32853;
+}
+.caret{
+    color: #f32853;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color:white;
+    font-weight: bold;
+    background-color: #f32853;
+    
+    font-family:  "Raleway", Arial, Helvetica, sans-serif;
+}
+
+.dropdown-menu{
+    background-color: #f32853;
+    margin-right: 7px;
+}
+.navbar-nav .open .dropdown-menu {
+    text-align: center;}
+#homePageUserIcon{
+    color:#f32853;
+    size: 50px;
+    font-size: x-large
+}
+td{
+    padding: 20px;
+}
+.groupSignUp {
+    margin-bottom: 11px;
+    margin-top: -10px;
+}
+#panelSignUp{
+    margin-top: -75px;
+}
+
+.labelSignUp{
+    margin-bottom: 1px;
+    margin-top: 5px;
+}
+#signUpButton{
+    margin-bottom: 7px;
+    margin-top: -12px;
+}
+button.btn.special.closeButton{
+    background:gray;
+    font-weight:bold;
+
+}
+
+
+.comError{
+    color: #ff0000;
+    font-size:11px ;
+    float: right;
+}
+.signEmailBorder{
+    border: #ff0000;
+}
+.regSuccessMessageClass{
+    color: #008000;
+    
+}
+.error-input {
+    border: 1px solid #ff0000;
+}
+.error-message {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+#loginButton{
+    width: 100px;
+    font-size: 18px;
+    
+}
+.errorStyle{
+
+    color: #ff0000; 
+    float: right;
+     font-size: 12px;
+}
+.inputBorder{
+    border: 1px solid #808080;
+}
+.custom-icon{
+    font-size: 50px;
+}
+.userCustomIcon{
+    font-size: 80px;
+}
